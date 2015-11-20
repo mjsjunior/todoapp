@@ -1,0 +1,31 @@
+{
+  "name": "Todo app",
+  "authors": [
+    "Maurício Júnior <mauriciojs.junior@gmail.com>"
+  ],
+  "description": "Atividade curso front end",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "to",
+    "do"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.7",
+    "angular-route": "1.4.7",
+    "jquery-2.1.4.min": "http://code.jquery.com/jquery-2.1.4.min.js",
+    "angular-material": "~0.11.4",
+    "ngstorage": "~0.3.10",
+    "angular-material-datetimepicker": "~1.2.5"
+  }
+}

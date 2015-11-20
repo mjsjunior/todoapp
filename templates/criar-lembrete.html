@@ -1,0 +1,28 @@
+
+	 <md-subheader layout="row" class="md-accent" >Criando lembretes</md-subheader>
+	 <md-content md-theme="docs-dark" layout-padding layout="row" layout-sm="column">
+	    <md-input-container>
+	      <label>Title</label>
+	      <input ng-model="obj.title" >
+	    </md-input-container>
+	  </md-content>
+	  <md-content layout-padding layout-sm="column" layout="row" >
+	      <md-input-container class="md-block" flex-sm="100" flex="50">
+	        <label>Descrição</label>
+	        <textarea ng-model="obj.description" columns="1" rows="3" data-dependency="second"></textarea>
+	      </md-input-container>
+
+
+	      <md-input-container class="md-block" flex-sm="100" flex="50">
+	        <label>Data e horário</label>
+	        <input mdc-datetime-picker="" ng-model="dataHora" date="true" time="true" type="text" id="datetime"
+	placeholder="Date" min-date="date" ng-model="dateTime" class=" md-input" data-dependency="third">
+	    </md-input-container>
+
+	  </md-content>
+
+
+	<md-content layout="row" layout-align="center start">
+	  <md-button class="md-raised md-primary" flex-sm="80" flex="40" ng-click="salvarLembrete(obj)">Salvar lembrete</md-button>
+	</md-content>
+	</form>

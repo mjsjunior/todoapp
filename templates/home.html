@@ -1,0 +1,39 @@
+    <md-tabs class="md-accent" md-dynamic-height="true" md-selected="data.selectedIndex" md-swipe-content="true"  md-center-tabs="true" md-stretch-tabs="always" md-align-tabs="top">
+      
+      <md-tab id="lembretes">
+        <md-tab-label>Seus lembretes</md-tab-label>
+          <md-tab-body>
+
+             <md-list ng-repeat="lembrete in lembretes">
+                <md-list-item class="md-2-line">
+                  <md-checkbox ng-model="a.done"></md-checkbox>
+                  <div class="md-list-item-text">
+                    <h3>{{lembrete.title}}</h3>
+                    <p>{{lembrete.description}}</p>
+                    <span>{{lembrete.data | date:"MM/dd/yyyy 'às' hh:mma"}}</span><br>
+                  </div>
+                </md-list-item>
+              </md-list>
+
+
+          
+          </md-tab-body>
+      </md-tab>
+
+
+      <md-tab id="tarefas">
+        <md-tab-label>Suas tarefas</md-tab-label>
+        <md-tab-body>
+          <md-list ng-repeat="tarefa in tarefas">
+                <md-list-item class="md-2-line">
+                  <md-checkbox ng-model="a.done"></md-checkbox>
+                  <div class="md-list-item-text">
+                    <h3>{{tarefa.title}}</h3>
+                    <p>{{tarefa.description}}</p>
+                    <span>{{tarefa.data | date:"MM/dd/yyyy 'às' hh:mma"}}</span><br>
+                  </div>
+                </md-list-item>
+              </md-list>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>

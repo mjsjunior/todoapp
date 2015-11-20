@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt_br" ng-app="todoApp">
+<head>
+	<meta charset="UTF-8">
+	<title>To-do App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="libs/angular-material/angular-material.min.css">
+	<link rel="stylesheet" href="libs/angular-material-datetimepicker/css/material-datetimepicker.min.css">
+	<base href="/" >
+	<style>
+	i.material-icons.ng-scope{margin-top:14px;}
+	md-card{box-shadow:0 0 0 #fff;}
+	md-sidenav{height: 100vh}
+	</style>
+</head>
+<body ng-cloak layout="column" ng-controller="appController as index">
+ 
+  <md-toolbar layout="row">
+    <div class="md-toolbar-tools">
+      <md-button ng-click="index.toggleSidenav('left')" hide-gt-sm class="md-icon-button">
+       <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg">
+        </md-icon>
+      </md-button>
+      <h1><a href="/todoapp/#home">My tasks</a></h1>
+    </div>
+  </md-toolbar>
+
+  <div layout="row" flex>
+    <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+    	<md-card>
+		 <img src="http://mycolorscreen.com/wp-content/uploads/users/ShamrockStudios@XDA/default_night.png" class="md-card-image" alt="image caption">
+		 <md-card-content>
+		   <h2>Card headline</h2>
+		   <p>Card content</p>
+		 </md-card-content>
+		 <md-card-actions layout="row" layout-align="center center">
+			<md-button ng-click="index.close()" class="md-accent" href="/todoapp/#criar-tarefa">+ tarefas</md-button>
+     		 <md-button ng-click="index.close()" class="md-accent" href="/todoapp/#criar-lembrete">+ Lembretes</md-button>
+		 </md-card-actions>
+		</md-card>
+      
+    </md-sidenav>
+
+    <div layout="column" flex id="content">
+   		<ng-view></ng-view>
+   		   <!-- <md-content layout="column" flex class="md-padding">
+	        This Starter Application consists of a Toolbar, SideNav (with two buttons), and Content area.
+	        <p>This is the content area! </p>
+	      </md-content>
+ -->    </div>
+  </div>
+
+
+      <md-fab-speed-dial md-open="demo.isOpen" md-direction="up"
+                         class="ng-isolate-scope md-up md-noop md-scale md-accent" style="position:fixed;bottom:15px;right:15px">
+        <md-fab-trigger>
+          <md-button aria-label="menu" class="md-fab md-accent">
+            <i class="material-icons">add</i>
+          </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+          <md-button aria-label="Criar lembrete" class="md-fab md-primary" href="/todoapp/#criar-lembrete">
+            <i class="material-icons">add_alert</i>
+          </md-button>
+          <md-button aria-label="Criar Tarefa" class="md-fab md-primary"  href="/todoapp/#criar-tarefa">
+         
+            <i class="material-icons">content_paste</i>
+          </md-button>
+         
+        </md-fab-actions>
+      </md-fab-speed-dial>
+</div>
+
+	<script src="todoapp/libs/angular/angular.min.js"></script>
+	<script src="todoapp/libs/angular-route/angular-route.min.js"></script>
+	<script src="todoapp/libs/angular-animate/angular-animate.min.js"></script>
+	<script src="todoapp/libs/angular-aria/angular-aria.min.js"></script>
+	<script src="todoapp/libs/angular-material/angular-material.min.js"></script>
+	<script src="todoapp/libs/jquery-2.1.4.min/index.js"></script>
+	<script src="todoapp/libs/ngstorage/ngStorage.min.js"></script>
+
+	<script src="todoapp/libs/momentjs/min/moment-with-locales.min.js"></script>
+	<script src="todoapp/libs/angular-material-datetimepicker/js/angular-material-datetimepicker.min.js"></script>
+
+	<script src="todoapp/static/js/core.js"></script>
+	<script src="todoapp/static/js/factory/lembreteFactory.js"></script>
+	<script src="todoapp/static/js/factory/tarefaFactory.js"></script>
+	<script src="todoapp/static/js/controllers/appController.js"></script>
+</body>
+</html>
