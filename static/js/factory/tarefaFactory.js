@@ -8,7 +8,14 @@ todoApp.factory('tarefaFactory', function($localStorage){
 			$localStorage.todoapp = bd;
 		},
 		remove: function(tarefa){
-			console.log(tarefa.msg);
+			setTimeout(function(){
+				bd = $localStorage.todoapp
+				console.log(bd.tarefas.indexOf(tarefa))
+				bd.tarefas.splice(bd.tarefas.indexOf(tarefa),1)
+				$localStorage.todoapp = bd;
+
+			},200)
 		}
 	}
+	
 });

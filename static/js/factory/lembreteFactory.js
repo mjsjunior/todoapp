@@ -1,4 +1,4 @@
-todoApp.factory('lembreteFactory', function($localStorage){
+todoApp.factory('lembreteFactory', function($localStorage,$location,$rootScope){
 	return {
 		add: function(lembrete){
 			console.log(lembrete)
@@ -8,7 +8,12 @@ todoApp.factory('lembreteFactory', function($localStorage){
 			$localStorage.todoapp = bd;
 		},
 		remove: function(lembrete){
-			console.log(lembrete.msg);
+			setTimeout(function(){
+				bd = $localStorage.todoapp
+				console.log(bd.lembrete.indexOf(lembrete))
+				bd.lembrete.splice(bd.lembrete.indexOf(lembrete),1)
+				$localStorage.todoapp = bd;
+			},200)
 		}
 	}
 });

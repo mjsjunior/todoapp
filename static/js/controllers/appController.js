@@ -1,4 +1,4 @@
-todoApp.controller('appController',function($scope,$mdToast,$mdSidenav,$localStorage){
+todoApp.controller('appController',function($scope,$mdToast,$mdSidenav,$localStorage,lembreteFactory,tarefaFactory){
 	setup();
 
 	function setup(){
@@ -13,6 +13,20 @@ todoApp.controller('appController',function($scope,$mdToast,$mdSidenav,$localSto
 
 		$scope.lembretes = $localStorage.todoapp.lembrete
 		$scope.tarefas = $localStorage.todoapp.tarefas
+	}
+
+
+	$scope.finalizarLembrete = function(lembrete){
+
+		lembreteFactory.remove(lembrete)
+		$mdToast.show($mdToast.simple().position('right','top').content('Finalizamos seu lembrete: '+lembrete.title));
+	}
+
+
+	$scope.finalizarTarefa = function(tarefa){
+
+		tarefaFactory.remove(tarefa)
+		$mdToast.show($mdToast.simple().position('right','top').content('Finalizamos seu Tarefa: '+tarefa.title));
 	}
 
 
@@ -53,7 +67,7 @@ todoApp.controller('lembreteController',function($mdToast,$scope,lembreteFactory
 })
 
 
-//lembrete controller
+//tarefa controller
 
 todoApp.controller('tarefaController',function($mdToast,$scope,tarefaFactory){
 

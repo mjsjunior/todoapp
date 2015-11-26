@@ -3,37 +3,59 @@
       <md-tab id="lembretes">
         <md-tab-label>Seus lembretes</md-tab-label>
           <md-tab-body>
-
-             <md-list ng-repeat="lembrete in lembretes">
-                <md-list-item class="md-2-line">
+            <div ng-if="lembretes.length == 0">
+              <div layout="row" layout-align="center center" style="height:48vh">
+                <div style="text-align:center;">Você não possui nenhum lembrete! <br / ><br / > <a href="/todoapp/#criar-lembrete">Cadastrar lembrete</a></div>
+             
+              </div>
+            </div>
+             <md-list ng-repeat="lembrete in lembretes | orderBy: order">
+                <md-list-item class="md-2-line" ng-click="finalizarLembrete(lembrete)">
                   <md-checkbox ng-model="a.done"></md-checkbox>
                   <div class="md-list-item-text">
                     <h3>{{lembrete.title}}</h3>
                     <p>{{lembrete.description}}</p>
-                    <span>{{lembrete.data | date:"MM/dd/yyyy 'às' hh:mma"}}</span><br>
+                    <span>{{lembrete.data | date:"dd/MM/yyyy 'às' hh:mma"}}</span><br>
                   </div>
                 </md-list-item>
+                 <md-divider ng-if="!$last"></md-divider>
               </md-list>
 
-
+              <md-button class="md-icon-button md-accent"  ng-click="order = (order=='data' ? '-data' : 'data')" style="position: fixed;top: 0;right:0;color: #fff;z-index: 9999;">
+                <i class="material-icons">sync</i>
+            </md-button>
+    
           
           </md-tab-body>
       </md-tab>
-
+  
+    
 
       <md-tab id="tarefas">
         <md-tab-label>Suas tarefas</md-tab-label>
         <md-tab-body>
-          <md-list ng-repeat="tarefa in tarefas">
-                <md-list-item class="md-2-line">
-                  <md-checkbox ng-model="a.done"></md-checkbox>
-                  <div class="md-list-item-text">
-                    <h3>{{tarefa.title}}</h3>
-                    <p>{{tarefa.description}}</p>
-                    <span>{{tarefa.data | date:"MM/dd/yyyy 'às' hh:mma"}}</span><br>
-                  </div>
-                </md-list-item>
-              </md-list>
+        <div ng-if="tarefas.length == 0">
+              <div layout="row" layout-align="center center" style="height:48vh">
+                <div style="text-align:center;">Você não possui nenhuma tarefa! <br / ><br / > <a href="/todoapp/#criar-tarefa">Cadastrar Tarefa</a></div>
+             
+              </div>
+            </div>
+          <md-list ng-repeat="tarefa in tarefas | orderBy: order">
+              <md-list-item class="md-2-line" ng-click="finalizarTarefa(tarefa)">
+                <md-checkbox ng-model="a.done"></md-checkbox>
+                <div class="md-list-item-text">
+                  <h3>{{tarefa.title}}</h3>
+                  <p>{{tarefa.description}}</p>
+                  <span>{{tarefa.data | date:"dd/MM/yyyy 'às' hh:mma"}}</span><br>
+                </div>
+                 <md-divider ng-if="!$last"></md-divider>
+              </md-list-item>
+              
+          </md-list>
+
+          <md-button class="md-icon-button md-accent"  ng-click="order = (order=='data' ? '-data' : 'data')" style="position: fixed;top: 0;right:0;color: #fff;z-index: 9999;">
+               <i class="material-icons">sync</i>
+            </md-button>
         </md-tab-body>
       </md-tab>
     </md-tabs>
